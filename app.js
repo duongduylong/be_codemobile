@@ -18,7 +18,7 @@ app.use('/api/books', bookRoutes);
 app.use('/api/chapters', chapterRoutes);
 app.use('/api/reviews', reviewRoutes);
 
-mongoose.connect(process.env.MONGODB_URI || 'mongodb://localhost:27017/bookapp')
+mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
