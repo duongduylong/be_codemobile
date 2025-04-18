@@ -7,6 +7,7 @@ const userRoutes = require('./routes/user.routes');
 const bookRoutes = require('./routes/book.routes');
 const chapterRoutes = require('./routes/chapter.routes');
 const reviewRoutes = require('./routes/review.routes');
+const fileRoutes = require('./routes/file.routes');
 
 const app = express();
 
@@ -17,10 +18,11 @@ app.use('/api/users', userRoutes);
 app.use('/api/books', bookRoutes);
 app.use('/api/chapters', chapterRoutes);
 app.use('/api/reviews', reviewRoutes);
+app.use('/api/files', fileRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))
   .catch((err) => console.error(err));
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT;
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
