@@ -68,4 +68,5 @@ const auth = require('../middlewares/auth');
 const  reviewController = require('../controllers/review.controller');
 
 router.post('/', auth, reviewController.addReview);
+router.get('/:bookId', reviewController.getReviewsByBook);
 module.exports = router;

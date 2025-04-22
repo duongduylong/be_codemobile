@@ -58,3 +58,17 @@ exports.addReview = async (req, res) => {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
 };
+
+exports.getReviewsByBook = async (req, res) => {
+  try {
+    const { bookId } = req.params;
+
+    const reviews = await Review.find({ bookId: bookId })
+      .populate('userId', 'username') // Lấy thông tin người review
+      .sort({ createdAt: -1 }); // sắp xếp mới nhất trước
+
+    res.json({ reviews });
+  } catch (err) {
+    res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};

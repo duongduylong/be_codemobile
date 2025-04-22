@@ -2,6 +2,7 @@
 const Chapter = require('../models/chapter.model');
 const User = require('../models/user.model');
 const Book = require('../models/book.model');
+const Author = require('../models/author.model');
 
 // Get all chapters of a book
 exports.getChaptersByBook = async (req, res) => {
@@ -45,6 +46,9 @@ exports.getSingleChapter = async (req, res) => {
     updateStatIfNeeded('month', date => new Date(date.getFullYear(), date.getMonth(), 1));
 
     book.views += 1;
+    const author = await Author.findById(book.author);
+    author.totalViews+=1;
+    await author.save();
     await book.save();
 
     const user = await User.findById(userId);

@@ -8,6 +8,7 @@ const bookRoutes = require('./routes/book.routes');
 const chapterRoutes = require('./routes/chapter.routes');
 const reviewRoutes = require('./routes/review.routes');
 const fileRoutes = require('./routes/file.routes');
+const authorRoutes = require('./routes/author.router');
 
 const app = express();
 
@@ -19,6 +20,7 @@ app.use('/api/books', bookRoutes);
 app.use('/api/chapters', chapterRoutes);
 app.use('/api/reviews', reviewRoutes);
 app.use('/api/files', fileRoutes);
+app.use('/api/authors', authorRoutes);
 
 mongoose.connect(process.env.MONGODB_URI)
   .then(() => console.log('MongoDB connected'))

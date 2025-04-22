@@ -2,7 +2,7 @@ const Book = require('../models/book.model');
 
 // Get all books
 exports.getAllBooks = async (req, res) => {
-  const books = await Book.find();
+  const books = await Book.find().populate('author');
   res.json(books);
 };
 
@@ -73,7 +73,7 @@ exports.searchBooks = async (req, res) => {
 
 // Get book detail
 exports.getBookDetail = async (req, res) => {
-  const book = await Book.findById(req.params.id);
+  const book = await Book.findById(req.params.id).populate('author');
   await book.save(); // nếu cần cập nhật views có thể thêm logic
   res.json(book);
 };
@@ -120,7 +120,7 @@ exports.getTopBooksByPeriod = async (req, res) => {
   }
 
   try {
-    const books = await Book.find();
+    const books = await Book.find().populate('author');
 
     for (const book of books) {
       const lastUpdate = book.lastStatsUpdate?.[currentPeriodKey];

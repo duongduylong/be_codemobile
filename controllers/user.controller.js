@@ -29,8 +29,8 @@ exports.login = async (req, res) => {
     if (!isMatch)
       return res.status(400).json({ message: 'Invalid credentials' });
 
-    const token = jwt.sign({ id: user._id }, 'secretKey', { expiresIn: '7d' });
-    res.json({ token, user });
+    const token = jwt.sign({ id: user._id }, process.env.JWT_secret, { expiresIn: '7d' });
+    res.json({ token});
   } catch (err) {
     res.status(500).json({ message: 'Server error', error: err.message });
   }
@@ -41,7 +41,13 @@ exports.getUserHistory = async (req, res) => {
       const userId = req.user.id; // lấy từ middleware auth
       const statusQuery = req.query.status; // đọc query status
   
-      const user = await User.findById(userId).populate('readHistory.bookId readHistory.chapterId');
+      // const user = await User.findById(userId).populate('readHistory.bookId readHistory.chapterId  readHistory.bookId.author');
+      const user = await User.findById(userId)
+      .populate({
+        path: 'readHistory.bookId', // Populate thông tin sách
+        populate: { path: 'author', select: 'name bio image' } // Populate thông tin tác giả trong sách
+      })
+      .populate('readHistory.chapterId'); // Nếu có chapterId, bạn cũng có thể populate nó
       if (!user) return res.status(404).json({ message: 'User not found' });
   
       let history;
@@ -56,7 +62,6 @@ exports.getUserHistory = async (req, res) => {
       res.status(500).json({ message: 'Server error', error: err.message });
     }
 };
-  
 
 exports.getProfile = async (req, res) => {
   try {
