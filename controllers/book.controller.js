@@ -1,5 +1,5 @@
 const Book = require('../models/book.model');
-
+const Author = require('../models/author.model');
 // Get all books
 exports.getAllBooks = async (req, res) => {
   const books = await Book.find().populate('author');
@@ -59,15 +59,34 @@ exports.deleteBook = async (req, res) => {
 };
 
 // Search books
+// exports.searchBooks = async (req, res) => {
+//   const { q } = req.query;
+//   const books = await Book.find({
+//     $or: [
+//       { title: new RegExp(q, 'i') },
+//       { author: new RegExp(q, 'i') },
+//       { genres: new RegExp(q, 'i') },
+//     ],
+//   });
+//   res.json(books);
+// };
 exports.searchBooks = async (req, res) => {
   const { q } = req.query;
+
+  // Tìm tất cả các tác giả có tên trùng với từ khóa tìm kiếm
+  const authors = await Author.find({
+    name: new RegExp(q, 'i') // Tìm kiếm tác giả theo tên (không phân biệt chữ hoa, chữ thường)
+  }).select('_id'); // Chỉ lấy _id của tác giả
+
+  // Nếu tìm thấy tác giả, thực hiện tìm kiếm sách theo tên tác giả hoặc ID tác giả
   const books = await Book.find({
     $or: [
-      { title: new RegExp(q, 'i') },
-      { author: new RegExp(q, 'i') },
-      { genres: new RegExp(q, 'i') },
+      { title: new RegExp(q, 'i') },  // Tìm theo tiêu đề sách
+      { genres: new RegExp(q, 'i') },  // Tìm theo thể loại sách
+      { author: { $in: authors.map(author => author._id) } }  // Tìm theo ID tác giả (nếu có)
     ],
   });
+
   res.json(books);
 };
 
@@ -159,5 +178,18 @@ exports.getTopBooksByPeriod = async (req, res) => {
   } catch (err) {
     console.error('Top books error:', err);
     res.status(500).json({ message: 'Server error', error: err.message });
+  }
+};
+//List sách theo tác giả
+exports.getBooksByAuthor = async (req, res) => {
+  const { authorId } = req.params; // Lấy authorId từ URL
+
+  try {
+    // Tìm các sách của tác giả theo authorId
+    const books = await Book.find({ author: authorId });
+
+    res.json(books);
+  } catch (err) {
+    res.status(500).json({ message: 'Lỗi khi lấy dữ liệu sách', error: err.message });
   }
 };

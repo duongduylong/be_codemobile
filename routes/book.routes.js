@@ -195,5 +195,6 @@ router.get('/search', bookController.searchBooks);
 router.get('/top/rated', bookController.getTopRatedBooks);
 router.get('/top/abc', bookController.getTopBooksByPeriod);
 router.get('/:id', bookController.getBookDetail);
+router.get('/:authorId/listbook', bookController.getBooksByAuthor);
 
 module.exports = router;
