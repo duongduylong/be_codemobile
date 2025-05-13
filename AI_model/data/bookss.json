@@ -1,0 +1,144 @@
+[
+    {
+        "_id": "67ffeae8742be33fe159e0c5",
+        "title": "Bí mật của may mắn",
+        "author": {
+            "_id": "680774f99638cf6667df6ba5",
+            "name": "Álex Rovira"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 3.4,
+        "views": 122
+    },
+    {
+        "_id": "67fff6aa65ff9e567d9095c4",
+        "title": "Bí mật ",
+        "author": {
+            "_id": "680775879638cf6667df6bbe",
+            "name": "Álex Rovirassss"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 3.8,
+        "views": 134
+    },
+    {
+        "_id": "6807da4427ab5af4145fd46c",
+        "title": "ABCABC ",
+        "author": {
+            "_id": "6807d7c827ab5af4145fd459",
+            "name": "ABCs"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 0,
+        "views": 0
+    },
+    {
+        "_id": "6807dafe27ab5af4145fd484",
+        "title": "ddddddddddddd",
+        "author": {
+            "_id": "6807d7d427ab5af4145fd45b",
+            "name": "Duong Duy Long"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 0,
+        "views": 0
+    },
+    {
+        "_id": "680d3f8d7e77e222193557da",
+        "title": "ee",
+        "author": {
+            "_id": "6807d7d427ab5af4145fd45b",
+            "name": "Duong Duy Long"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 0,
+        "views": 0
+    },
+    {
+        "_id": "680d3f917e77e222193557dc",
+        "title": "eeeeee",
+        "author": {
+            "_id": "6807d7d427ab5af4145fd45b",
+            "name": "Duong Duy Long"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 0,
+        "views": 0
+    },
+    {
+        "_id": "680d3f957e77e222193557de",
+        "title": "eeeeeeeeeeee",
+        "author": {
+            "_id": "6807d7d427ab5af4145fd45b",
+            "name": "Duong Duy Long"
+        },
+        "genres": [
+            "Kỹ năng sống",
+            "Triết lí"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 5,
+        "views": 0
+    },
+    {
+        "_id": "680fa78f842c3ac158c8e8f1",
+        "title": "Truyện ma",
+        "author": {
+            "_id": "6807d7d427ab5af4145fd45b",
+            "name": "Duong Duy Long"
+        },
+        "genres": [
+            "Kinh dị"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 0,
+        "views": 0
+    },
+    {
+        "_id": "680fa7a0842c3ac158c8e8f3",
+        "title": "Truyện tình cảm",
+        "author": {
+            "_id": "6807d7d427ab5af4145fd45b",
+            "name": "Duong Duy Long"
+        },
+        "genres": [
+            "Tình cảm"
+        ],
+        "description": "Một câu chuyện ngụ ngôn sâu sắc về cơ hội và sự chuẩn bị.",
+        "coverImage": "http://192.168.1.152:9000/book-files/67ffeae8742be33fe159e0c5/sach1.jpg",
+        "rating": 0,
+        "views": 0
+    }
+]

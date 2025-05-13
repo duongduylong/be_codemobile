@@ -75,9 +75,36 @@ exports.getProfile = async (req, res) => {
 exports.getUsers = async (req, res) => {
   try {
     const users = await User.find().select('-password');
-    if (!users) return res.status(404).json({ message: 'User not found' });
+    if (!users) return res.status(404).json({ message: 'Không tìm thấy user' });
     res.json(users);
   } catch (err) {
-    res.status(500).json({ message: 'Server error', error: err.message });
+    res.status(500).json({ message: 'Có lỗi xảy ra', error: err.message });
+  }
+};
+
+exports.getListHistory = async (req, res) => {
+  try {
+    const users = await User.find({}).lean();
+
+    const finishedReadHistory = [];
+
+    users.forEach((user) => {
+      if (user.readHistory && user.readHistory.length > 0) {
+        user.readHistory.forEach((history) => {
+          if (history.status === 'finished') {
+            finishedReadHistory.push({
+              userId: user._id,
+              bookId: history.bookId,
+              readAt: history.readAt
+            });
+          }
+        });
+      }
+    });
+
+    res.status(200).json(finishedReadHistory);
+  } catch (error) {
+    console.error('Error getting read history:', error);
+    res.status(500).json({ error: 'Internal Server Error' });
   }
 };

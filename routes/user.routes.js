@@ -59,5 +59,6 @@ router.post('/register', userController.register);
 router.post('/login', userController.login);
 router.get('/history', auth, userController.getUserHistory);
 router.get('/profile', auth, userController.getProfile);
-
+router.get('/',userController.getUsers);
+router.get('/listHistory',userController.getListHistory);
 module.exports = router;

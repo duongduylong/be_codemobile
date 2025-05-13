@@ -1,0 +1,34 @@
+[
+    {
+        "userId": "67ffeabb742be33fe159e0be",
+        "bookId": "67ffeae8742be33fe159e0c5"
+    },
+    {
+        "userId": "67ffeabb742be33fe159e0be",
+        "bookId": "67fff6aa65ff9e567d9095c4"
+    },
+    {
+        "userId": "67ffeac2742be33fe159e0c1",
+        "bookId": "67ffeae8742be33fe159e0c5"
+    },
+    {
+        "userId": "67ffeac2742be33fe159e0c1",
+        "bookId": "67fff6aa65ff9e567d9095c4"
+    },
+    {
+        "userId": "680785e1ace01675f7971c3b",
+        "bookId": "67ffeae8742be33fe159e0c5"
+    },
+    {
+        "userId": "680785e1ace01675f7971c3b",
+        "bookId": "67fff6aa65ff9e567d9095c4"
+    },
+    {
+        "userId": "68079119bd80dc8d09b0ef1b",
+        "bookId": "67ffeae8742be33fe159e0c5"
+    },
+    {
+        "userId": "68079119bd80dc8d09b0ef1b",
+        "bookId": "67fff6aa65ff9e567d9095c4"
+    }
+]

@@ -24,13 +24,6 @@ const BookSchema = new mongoose.Schema({
     week: { type: Date },
     month: { type: Date }
   },
-  // reviews: [
-  //   {
-  //     userId: { type: mongoose.Schema.Types.ObjectId, ref: 'User' },
-  //     comment: String,
-  //     rating: Number,
-  //   },
-  // ],
 });
 
 module.exports = mongoose.model('Book', BookSchema);

@@ -2,7 +2,9 @@ const Book = require('../models/book.model');
 const Author = require('../models/author.model');
 // Get all books
 exports.getAllBooks = async (req, res) => {
-  const books = await Book.find().populate('author');
+  const books = await Book.find()
+        .select('_id title author genres description coverImage rating views')
+        .populate('author');
   res.json(books);
 };
 

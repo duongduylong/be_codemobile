@@ -69,4 +69,5 @@ const  reviewController = require('../controllers/review.controller');
 
 router.post('/', auth, reviewController.addReview);
 router.get('/:bookId', reviewController.getReviewsByBook);
+router.get('/',reviewController.getReviews);
 module.exports = router;
