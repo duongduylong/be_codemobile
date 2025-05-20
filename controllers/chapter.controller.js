@@ -28,11 +28,11 @@ exports.getSingleChapter = async (req, res) => {
 
     const now = new Date();
     const updateStatIfNeeded = (key, getPeriodStart) => {
-      const lastUpdate = book.lastStatsUpdate?.[key];
+      const lastUpdate = book.lastViewStatsUpdate?.[key];
       const startOfPeriod = getPeriodStart(new Date(now));
       if (!lastUpdate || new Date(lastUpdate) < startOfPeriod) {
         book.viewStats[key] = 0;
-        book.lastStatsUpdate[key] = now;
+        book.lastViewStatsUpdate[key] = now;
       }
       book.viewStats[key] += 1;
     };

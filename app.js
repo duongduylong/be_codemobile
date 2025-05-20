@@ -27,40 +27,6 @@ app.use('/api/files', fileRoutes);
 app.use('/api/authors', authorRoutes);
 app.use('/api/notes', noteRoutes);
 
-// app.get('/recommend',auth , (req, res) => {
-//   const userId = req.user.id;
-
-//   // Chạy script Python với userId làm tham số đầu vào
-//   const python = spawn('python', ['./AI_model/recommend.py', userId]);
-
-//   let dataToSend = '';
-
-//   python.stdout.on('data', (data) => {
-//     dataToSend += data.toString();  // Ghi dữ liệu từ Python vào biến dataToSend
-//     console.log('Data from Python: ', dataToSend);  // Log để kiểm tra dữ liệu nhận được
-//   });
-
-//   python.stderr.on('data', (data) => {
-//     console.error(`stderr: ${data}`);  // Xử lý lỗi nếu có từ Python
-//   });
-
-//   python.on('close', (code) => {
-//     console.log(`Python process closed with code: ${code}`);
-
-//     try {
-//       // Kiểm tra dữ liệu trả về
-//       const cleanedData = dataToSend.trim();  // Loại bỏ bất kỳ ký tự thừa nào
-//       console.log('Cleaned Data:', cleanedData);  // Log dữ liệu đã được làm sạch
-
-//       // Parse dữ liệu JSON trả về từ Python
-//       const jsonData = JSON.parse(cleanedData);  
-//       res.json(jsonData);  // Trả kết quả về cho client
-//     } catch (error) {
-//       console.error("Error parsing JSON: ", error);
-//       res.status(500).json({ error: 'Failed to parse prediction result' });
-//     }
-//   });
-// });
 
 app.get('/recommend', auth, async (req, res) => {
   const userId = req.user.id;

@@ -19,7 +19,12 @@ const BookSchema = new mongoose.Schema({
     week: { type: Number, default: 0 },
     month: { type: Number, default: 0 }
   },
-  lastStatsUpdate: {
+  lastViewStatsUpdate: {
+    day: { type: Date },
+    week: { type: Date },
+    month: { type: Date }
+  },
+  lastReviewStatsUpdate: {
     day: { type: Date },
     week: { type: Date },
     month: { type: Date }

@@ -144,13 +144,29 @@ exports.getTopBooksByPeriod = async (req, res) => {
     const books = await Book.find().populate('author');
 
     for (const book of books) {
-      const lastUpdate = book.lastStatsUpdate?.[currentPeriodKey];
-      if (shouldReset(lastUpdate)) {
+      // const lastUpdate = book.lastStatsUpdate?.[currentPeriodKey];
+      // if (shouldReset(lastUpdate)) {
+      //   book.viewStats[currentPeriodKey] = 0;
+      //   book.reviewStats[currentPeriodKey] = 0;
+      //   book.lastStatsUpdate[currentPeriodKey] = new Date();
+      //   await book.save();
+      // }
+      const lastViewUpdate = book.lastViewStatsUpdate?.[currentPeriodKey];
+      if (shouldReset(lastViewUpdate)) {
         book.viewStats[currentPeriodKey] = 0;
-        book.reviewStats[currentPeriodKey] = 0;
-        book.lastStatsUpdate[currentPeriodKey] = new Date();
-        await book.save();
+        if (!book.lastViewStatsUpdate) book.lastViewStatsUpdate = {};
+        book.lastViewStatsUpdate[currentPeriodKey] = new Date();
       }
+
+      // Reset reviewStats nếu cần
+      const lastReviewUpdate = book.lastReviewStatsUpdate?.[currentPeriodKey];
+      if (shouldReset(lastReviewUpdate)) {
+        book.reviewStats[currentPeriodKey] = 0;
+        if (!book.lastReviewStatsUpdate) book.lastReviewStatsUpdate = {};
+        book.lastReviewStatsUpdate[currentPeriodKey] = new Date();
+      }
+
+      await book.save();
     }
 
     const totalRatings = books.reduce((sum, b) => sum + (b.rating || 0), 0);

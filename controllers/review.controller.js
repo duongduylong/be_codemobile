@@ -33,11 +33,11 @@ exports.addReview = async (req, res) => {
     const now = new Date();
 
     const updateStats = (key, getStart) => {
-      const lastUpdate = book.lastStatsUpdate?.[key];
+      const lastUpdate = book.lastReviewStatsUpdate?.[key];
       const startOfPeriod = getStart(new Date(now));
       if (!lastUpdate || new Date(lastUpdate) < startOfPeriod) {
         book.reviewStats[key] = 0;
-        book.lastStatsUpdate[key] = now;
+        book.lastReviewStatsUpdate[key] = now;
       }
       book.reviewStats[key] += 1;
     };
