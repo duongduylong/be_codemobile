@@ -249,7 +249,8 @@ user_history_df['book'] = book_encoder.transform(user_history_df['bookId'])
 
 num_users = user_history_df['user'].nunique()
 num_books = user_history_df['book'].nunique()
-embedding_dim = 50
+embedding_dim = 50 # số chiều vector đặc trưng
+
 
 # ======= LOAD hoặc TRAIN MODEL ========
 model_path = "AI_model/model/recommendation_model.h5"
@@ -300,12 +301,6 @@ for book_id_encoded in range(num_books):
 predictions = sorted(predictions, key=lambda x: x[1], reverse=True)
 recommended_books = predictions[:4]
 
-# result = [
-#     {
-#         'bookId': book_encoder.inverse_transform([book_id])[0],
-#         'predicted_score': float(score)
-#     } for book_id, score in recommended_books
-# ]
 result = []
 
 for encoded_book_id, score in recommended_books:
